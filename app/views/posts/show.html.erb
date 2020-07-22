@@ -1,5 +1,8 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
-<%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } %>
-<%= link_to "Edit Post", edit_post_path(@post) %>
-<%= link_to "Back to all posts", posts_path %>
+<div class="box">
+  <p class="title"><%= @post.title %></p>
+  <p><%= @post.body %></p>
+  <hr>
+  <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } %> | 
+  <%= link_to "Edit Post", edit_post_path(@post) %> | 
+  <%= link_to "Back to all posts", posts_path %>
+</div>

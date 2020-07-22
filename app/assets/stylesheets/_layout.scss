@@ -1,0 +1,19 @@
+body {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:100vh;
+}
+
+.header {
+  background-color:rgb(0, 238, 206);
+  padding:2rem 1.5rem;
+}
+.section {
+  display:flex;
+  flex:1 0 auto;
+}
+
+img {
+  border-radius: 50%;
+}

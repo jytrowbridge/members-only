@@ -9,8 +9,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    redirect_to root_path
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to @post
+    else
+      render :new
+    end
   end
 
   def show
@@ -29,9 +33,13 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to @post
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render :edit
+    end
   end
+
 
   private
 

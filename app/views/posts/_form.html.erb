@@ -1,5 +1,24 @@
-<%= simple_form_for @post do |f| %>
-  <%= f.input :title %>
-  <%= f.text_area :body %>
-  <%= f.button :submit %>
-<% end %>
+<div class="box">
+  <%= simple_form_for @post do |f| %>
+    <div class="field">
+      <div class="control">
+        <%= f.input :title, label: "Title", wrapper: false, label_html: {class: "label"}, placeholder: "Post Title", autofocus: true, input_html: { :style => 'width: 50%;'}, required: false, :error => false %>
+        <% if @post.errors.full_messages.include?("Title can't be blank")%>
+          <p class="has-text-danger">Title must be populated</p>
+        <% elsif @post.errors.full_messages.include?("Title has already been taken") %>
+          <p class="has-text-danger">Title already used</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <label class="label">Post Body</label>
+        <%= f.text_area :body, wrapper: false, class: "textarea", rows: "15", placeholder: "Write something interesting" %>
+          <% if @post.errors.full_messages.include?("Body can't be blank")%>
+            <p class="has-text-danger">Post must have some text!</p>
+          <% end %>
+      </div>
+    </div>
+    <%= f.button :submit %>
+  <% end %>
+</div>
