@@ -6,7 +6,14 @@
     </figure>
     <div class="media-content">
       <p class="subtitle is-5"><%= link_to post.title, post %></p>
-      <p class="subtitle is-6">Author: Anonymous</p>
+      <p class="subtitle is-6">
+        By 
+        <% if user_signed_in? %>
+          <%= post.user.username %>
+        <% else %>
+          Anonymous
+        <% end %>
+      </p>
     </div>
   </article>
   <br/>

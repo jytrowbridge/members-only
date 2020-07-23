@@ -1,0 +1,36 @@
+<div class="box registration-box">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    
+    <div class="form-inputs">
+      <div class="field">
+        <div class="control">
+          <%= f.input :email,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", class: "input" },
+                      label_html: { class: "label" },
+                      wrapper: false %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= f.input :password,
+                      #hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password", class: "input" },
+                      label_html: { class: "label" },
+                      wrapper: false %>
+        </div>
+      </div>
+      <%#= f.input :remember_me, as: :boolean if devise_mapping.rememberable?, wrapper: false %>
+    </div>
+    <br/>
+    <div class="form-actions">
+      <div class="control has-text-centered">
+        <%= f.button :submit, "Log In", class: "button is-link" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="has-text-centered">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
